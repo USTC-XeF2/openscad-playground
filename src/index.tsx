@@ -15,6 +15,8 @@ import { isInStandaloneMode, registerCustomAppHeightCSSProperty } from './utils.
 import { State, StatePersister } from './state/app-state.ts';
 import { writeStateInFragment } from "./state/fragment-state.ts";
 
+import { PrimeReactProvider } from 'primereact/api';
+
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -96,7 +98,9 @@ window.addEventListener('load', async () => {
   );
   root.render(
     <React.StrictMode>
-      <App initialState={initialState} statePersister={statePersister} fs={fs} />
+      <PrimeReactProvider value={{ ripple: false }}>
+        <App initialState={initialState} statePersister={statePersister} fs={fs} />
+      </PrimeReactProvider>
     </React.StrictMode>
   );
 });

@@ -19,6 +19,7 @@ export default function PanelSwitcher() {
   if ((state.parameterSet?.parameters?.length ?? 0) > 0) {
     singleTargets.push({ id: 'customizer', icon: 'pi pi-sliders-h', label: 'Customize' });
   }
+  singleTargets.push({ id: 'ai', icon: 'pi pi-comments', label: 'AI' });
   const multiTargets = singleTargets;
 
   return (

@@ -57,6 +57,10 @@ const config = [
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
+      fallback: {
+        "fs": false,
+        "path": false,
+      },
     },
     output: {
       filename: 'index.js',
@@ -68,6 +72,9 @@ const config = [
       port: 4000,
     },
     plugins: [
+      new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
+        resource.request = resource.request.replace(/^node:/, '');
+      }),
       new webpack.EnvironmentPlugin({
         'process.env.NODE_ENV': 'development',
       }),

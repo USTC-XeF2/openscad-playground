@@ -5,6 +5,8 @@
   "type": "module",
   "homepage": "https://ochafik.com/openscad2/",
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.81",
+    "@ai-sdk/openai": "^3.0.68",
     "@gltf-transform/core": "^4.1.1",
     "@gltf-transform/extensions": "^4.1.1",
     "@monaco-editor/loader": "^1.4.0",
@@ -12,6 +14,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ai": "^6.0.197",
     "blurhash": "^2.0.5",
     "chroma-js": "^3.1.2",
     "debug": "^4.4.0",

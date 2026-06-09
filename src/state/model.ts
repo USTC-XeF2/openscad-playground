@@ -83,13 +83,14 @@ export class Model {
       s.view.layout = s.view.layout.mode === 'multi'
         ? {
           mode: 'single',
-          focus: s.view.layout.editor ? 'editor' : s.view.layout.viewer ? 'viewer' : 'customizer'
+          focus: s.view.layout.editor ? 'editor' : s.view.layout.viewer ? 'viewer' : s.view.layout.customizer ? 'customizer' : 'ai'
         }
         : {
           mode: 'multi',
           editor: s.view.layout.focus === 'editor',
           viewer: s.view.layout.focus === 'viewer',
           customizer: s.view.layout.focus === 'customizer',
+          ai: s.view.layout.focus === 'ai',
         }
     });
   }
@@ -107,7 +108,7 @@ export class Model {
     this.mutate(s => {
       if (s.view.layout.mode !== 'multi') throw new Error('Wrong mode');
       s.view.layout[target] = visible
-      if ((s.view.layout.customizer ? 1 : 0) + (s.view.layout.editor ? 1 : 0) + (s.view.layout.viewer ? 1 : 0) == 0) {
+      if ((s.view.layout.customizer ? 1 : 0) + (s.view.layout.editor ? 1 : 0) + (s.view.layout.viewer ? 1 : 0) + (s.view.layout.ai ? 1 : 0) == 0) {
         // Select at least one panel
         // s.view.layout.editor = true;
         s.view.layout[target] = !visible;
